@@ -50,9 +50,16 @@ print("La taille de votre fichier est:",taille)
 
 #exo7 : écrire une liste dans un fichier
 
-liste=["Pommes","Poires","Scoubidou","Bananes","Papaye","Mangue"]
-fichier = open("liste.txt","w")
-fichier.write(liste)
-fichier.close()
+#importation de pickle pour enregistrer un objet dans un fichier
+import pickle
+
+#création de la liste que je veux enregistrer dans mon fichier
+ma_liste=["Pommes","Poires","Scoubidou","Bananes","Papaye","Mangue"]
+
+#enregistrement du pickle pour le fichier "liste"
+with open('liste','wb') as fichier:
+    mon_pickler = pickle.Pickler(fichier)
+#utilisation de la méthode dump pour enregistrer le fichier
+    mon_pickler.dump(ma_liste)   
 
 
